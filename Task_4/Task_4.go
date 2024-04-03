@@ -77,7 +77,8 @@ func hello5() {
 var cnt uint8
 
 func task6() {
-	fibonacci(0, 1)
+	//fibonacci(0, 1)
+	fibonacci2(23)
 }
 
 func fibonacci(one int, two int) {
@@ -86,6 +87,14 @@ func fibonacci(one int, two int) {
 	}
 	cnt++
 	fmt.Printf("%d ", one)
-	sm := one + two
-	fibonacci(two, sm)
+	fibonacci(two, one+two)
+}
+
+func fibonacci2(n int) (int, int) {
+	if n == 0 {
+		return 0, 1
+	}
+	one, two := fibonacci2(n - 1)
+	fmt.Printf("%d ", one)
+	return two, one + two
 }
